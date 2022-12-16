@@ -1,0 +1,83 @@
+.wrap {
+  width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  @apply py-12;
+  .container {
+    @apply grid gap-6 grid-cols-6;
+    .img {
+      @apply col-span-2;
+      img {
+        @apply w-full;
+      }
+    }
+    .content {
+      @apply col-span-4 pl-2;
+      .content-title {
+        @apply text-2xl font-bold mb-3;
+      }
+      .content-price {
+        @apply flex items-center;
+        .price {
+          @apply text-2xl text-red-600 font-bold mr-6;
+        }
+        .status {
+          @apply text-lg font-medium;
+          .status-title {
+            @apply font-bold;
+          }
+          .status-is {
+            @apply text-pink-500
+          }
+        }
+      }
+      .size {
+        .size-title {
+          @apply my-2 text-base font-medium mb-2;
+        }
+        .list-size {
+          @apply flex;
+          .item-size {
+            @apply py-2 px-4 border mr-3 cursor-pointer;
+          }
+          .active {
+            @apply border-pink-500;
+          }
+        }
+      }
+      .quantity {
+        @apply flex items-center my-6 pb-8 border-b;;
+        .quantity-title {
+          @apply text-lg font-bold mr-3;
+        }
+        .input {
+          @apply px-2 py-1 border text-xl outline-none w-12;
+        }
+        .input-button {
+          @apply cursor-pointer;
+        }
+      }
+      .actions {
+        @apply mt-8;
+        .add-cart {
+          @apply py-3 px-8 bg-pink-400 text-white text-base mr-5;
+        }
+        .buying {
+          @apply py-3 px-16 border-pink-400 text-pink-500 text-sm border;
+          &:hover {
+            @apply bg-pink-400 text-white transition-all;
+          }
+        }
+      }
+
+    }
+  }
+  .description {
+    .des-title {
+      @apply text-2xl font-bold mt-6 pb-4 border-b border-gray-500;
+    }
+    .des-content {
+      @apply text-base font-normal pt-4;
+    }
+  }
+}

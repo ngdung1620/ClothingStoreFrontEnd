@@ -1,0 +1,33 @@
+<div class="wrap">
+  <div class="content-left">
+    <div class="category">
+      <h1 class="category-title">Danh mục sản phẩm</h1>
+      <div class="category-group" *ngFor="let data of listDataOfGroupCategory">
+        <h1 class="group-title">{{data.name}}</h1>
+        <ul class="category-list">
+          <li class="category-item" (click)="handleClick(d)" *ngFor="let d of data.categories" [class.active]="isAction == d.name">{{d.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="content-right">
+    <div class="group">
+      <h1 class="title">{{title}}</h1>
+      <div class="list-item">
+        <div class="item" *ngFor="let data of listData" (click)="clickProduct(data.id)">
+          <div class="img">
+            <img [src]="data.img" alt="">
+          </div>
+          <h1 class="item-title">
+            {{data.name}}
+          </h1>
+          <h2 class="item-price">{{convertNumber(data.price)}}<span>đ</span></h2>
+        </div>
+      </div>
+      <div class="no-data flex flex-col items-center mt-10" *ngIf="isEmpty">
+        <h1 class="text-2xl font-medium text-center">Hiện không có sản phẩm nào !</h1>
+        <img src="./assets/img/img.png"  class="w-1/2" alt="">
+      </div>
+    </div>
+  </div>
+</div>

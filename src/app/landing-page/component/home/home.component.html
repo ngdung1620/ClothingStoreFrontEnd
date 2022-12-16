@@ -1,0 +1,34 @@
+<div class="wrap">
+  <div class="banner">
+    <img src="./assets/img/banner.png" alt="" class="banner-img">
+  </div>
+  <div class="group-sale">
+    <h1 class="title">Sản phẩm bán chạy</h1>
+    <h2 class="description">Top trending tuần này</h2>
+    <div class="list-item">
+      <div class="item" *ngFor="let data of ListOfData" (click)="clickProduct(data.id)">
+        <div class="img">
+          <img [src]="data.img" >
+        </div>
+        <h1 class="item-title">
+          {{data.name}}
+        </h1>
+        <h2 class="item-price">{{data.price}} <span>đ</span></h2>
+      </div>
+  </div>
+  <div class="group-sale">
+    <h1 class="title" >Sản phẩm mới về</h1>
+    <h2 class="description">Top mẫu mới về</h2>
+    <div class="list-item">
+      <div class="item" *ngFor="let data of ListOfData" (click)="clickProduct(data.id)">
+        <div class="img">
+          <img [src]="data.img" >
+        </div>
+        <h1 class="item-title">
+          {{data.name}}
+        </h1>
+        <h2 class="item-price">{{data.price}} <span>đ</span></h2>
+      </div>
+    </div>
+  </div>
+</div>

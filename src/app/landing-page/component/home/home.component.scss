@@ -1,0 +1,55 @@
+.wrap {
+  .banner {
+    height: 650px;
+    .banner-img {
+      @apply h-full w-full;
+    }
+  }
+  .group-sale {
+    @apply py-8;
+    width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
+    .title {
+      @apply text-2xl text-center font-bold mb-4 relative;
+      text-transform: uppercase;
+      &:after{
+        content: '';
+        width: 100px;
+        padding: 0.5px;
+        background-color: #333;
+        position: absolute;
+        bottom: -12px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+    .description {
+      @apply text-center text-base text-gray-400 italic;
+    }
+    .list-item {
+      @apply grid gap-6 grid-cols-5 mt-10;
+      .item {
+        @apply cursor-pointer;
+        .img {
+          @apply w-full h-72;
+          img {
+            @apply h-full rounded;
+          }
+        }
+        .item-title {
+          @apply text-sm mt-2 font-semibold;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          height: 50px;
+          line-height: 25px;
+        }
+        .item-price {
+          @apply text-red-600 text-base font-medium
+        }
+      }
+    }
+  }
+}

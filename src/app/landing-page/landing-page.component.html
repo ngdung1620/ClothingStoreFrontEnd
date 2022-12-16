@@ -1,0 +1,72 @@
+<div class="wrap">
+  <section class="header">
+    <div class="container">
+      <div class="header-left flex items-center">
+        <img src="./assets/img/logoshop.png" alt="" class="logo">
+        <span class="ml-2 text-xl font-bold">Gấu Shop</span>
+      </div>
+      <div class="header-main">
+        <h1 class="main-title" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Trang Chủ</h1>
+        <h1 class="main-title" routerLink="/product" routerLinkActive="active">Sản Phẩm</h1>
+        <h1 class="main-title">Giới Thiệu</h1>
+        <h1 class="main-title">Liên Hệ</h1>
+      </div>
+      <div class="header-right">
+        <span nz-icon nzType="search" nzTheme="outline" class="right-icon"></span>
+        <span class="bag">
+          <span class="bag-title">12</span>
+          <span nz-icon nzType="shopping-cart" class="right-icon bag" nzTheme="outline"></span>
+        </span>
+        <span nz-icon nzType="user" nzTheme="outline" class="right-icon"></span>
+      </div>
+    </div>
+  </section>
+  <section class="body">
+    <router-outlet></router-outlet>
+  </section>
+  <section class="footer">
+    <div class="wrap-footer">
+      <div class="information item-footer" >
+        <h1 class="title">Gấu Shop</h1>
+        <p>Gấu shop chuyên bán quần áo trẻ em online Đẹp - Rẻ - Uy Tín , giao hàng tận nơi trên Toàn quốc.
+          Cam kết: Hàng chất lượng, mẫu mã đa dạng, đổi trả hàng nếu không vừa ý.
+        </p>
+        <div class="address">
+          <i class="fa-sharp fa-solid fa-location-dot"></i>
+          <span>Phan Đăng Lưu, Kiến An, Hải Phòng</span>
+        </div>
+        <div class="phone">
+          <i class="fa-solid fa-phone"></i>
+          <span>0987654321</span>
+        </div>
+        <div class="email">
+          <i class="fa-solid fa-envelope"></i>
+          <span>sale@gaushop.com</span>
+        </div>
+      </div>
+      <div class="tablink item-footer">
+        <div class="title">Liên kết</div>
+        <div class="link">Tìm kiếm</div>
+        <div class="link">Chính sách đổi trả</div>
+        <div class="link">Chính sách vận chuyển</div>
+        <div class="link">Giới thiệu</div>
+      </div>
+      <div class="contact item-footer">
+        <h1 class="title">Kết nối với chúng tôi</h1>
+        <i class="fa-brands fa-facebook facebook"></i>
+        <i class="fa-brands fa-instagram instagram"></i>
+        <i class="fa-brands fa-tiktok tiktok"></i>
+      </div>
+      <div class="newletter item-footer">
+        <h1 class="title">Đăng ký nhận khuyến mãi</h1>
+        <div class="input">
+          <input type="text" placeholder="Email">
+          <button>Đăng ký</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="copyright">
+    <h1>© Copyright 2022 By NvDung</h1>
+  </section>
+</div>

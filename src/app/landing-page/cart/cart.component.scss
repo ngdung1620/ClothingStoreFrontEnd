@@ -1,0 +1,92 @@
+.wrap {
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  @apply grid grid-cols-8 gap-8 pt-8 mb-3;
+  .left {
+    @apply col-span-6;
+    .group-title {
+      @apply flex justify-between pb-4 border-b mb-4;
+      .title-cart {
+        @apply text-2xl text-black font-bold;
+      }
+      .title-total__product {
+        @apply text-base;
+      }
+    }
+    .list-product {
+      .item-product {
+        &:last-child {
+          @apply border-none;
+        }
+        @apply flex justify-between items-center border-b pb-4 mb-3;
+        .product-detail {
+          @apply  grid grid-cols-5 basis-3/5 gap-4;
+          .product-img {
+            @apply col-span-1;
+            img {
+              @apply w-full;
+            }
+          }
+          .product-des {
+            @apply text-sm col-span-4;
+            .product-title {
+              @apply text-black text-base font-bold;
+            }
+            .product-size {
+              @apply py-1 text-base font-medium;
+            }
+            .product-price {
+              @apply text-base text-red-600 font-medium;
+            }
+          }
+
+        }
+        .product-quantity {
+          @apply flex flex-col items-center;
+          .group-quantity {
+            .btn {
+              @apply border py-2 px-3 text-base text-center;
+            }
+            .btn-total {
+              @apply w-12;
+            }
+            .btn-adjust {
+              @apply cursor-pointer px-4;
+            }
+          }
+          .btn-delete {
+            @apply text-sm mt-3 font-bold underline cursor-pointer transition-all;
+            &:hover {
+              @apply text-pink-500;
+            }
+          }
+        }
+        .total-price {
+          @apply text-base text-red-600 font-bold;
+        }
+      }
+    }
+  }
+  .right {
+    @apply col-span-2;
+    .content {
+      @apply border p-3 sticky top-24;
+      .title {
+        @apply text-xl font-bold border-b py-3;
+      }
+      .total-price {
+        @apply flex justify-between items-center py-4 text-lg font-bold border-b;
+        .price {
+          @apply text-red-600 text-xl;
+        }
+      }
+      .check-out {
+        @apply mt-4 w-full py-3 rounded px-6 bg-pink-600 text-white uppercase font-bold;
+      }
+      .continue {
+        @apply mt-3 text-center text-base font-medium;
+      }
+    }
+  }
+}

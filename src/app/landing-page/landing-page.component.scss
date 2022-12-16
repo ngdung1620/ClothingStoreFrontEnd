@@ -1,0 +1,110 @@
+.wrap {
+  .header{
+    @apply border-b border-gray-300 fixed top-0 right-0 left-0 z-20;
+    background-color: #ffff;
+    box-shadow: 0px 1px 5px #cccc;
+    .container {
+      @apply flex justify-between items-center py-3 ;
+      width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+      .header-left {
+        .logo {
+          @apply w-14 rounded-2xl cursor-pointer;
+        }
+      }
+      .header-main {
+        @apply flex justify-between items-center;
+        .main-title {
+          @apply px-3 mx-1 text-lg font-medium cursor-pointer;
+          transition: all 0.3s linear;
+          &:hover {
+            @apply text-pink-500;
+          }
+        }
+      }
+      .header-right {
+        .right-icon {
+          @apply text-2xl mx-3 font-thin cursor-pointer;
+        }
+        .bag {
+          @apply relative;
+          .bag-title {
+            @apply absolute -top-2 text-white right-1 px-1 bg-pink-400 rounded-full text-xs z-10;
+          }
+        }
+      }
+    }
+  }
+  .body {
+    @apply z-10 min-h-screen;
+    margin-top: 80px;
+
+  }
+
+  .footer {
+    @apply bg-black/[.95] text-white;
+    .wrap-footer {
+      @apply grid gap-4 grid-cols-4 py-8;
+      width: 1300px;
+      margin-left: auto;
+      margin-right: auto;
+      .item-footer {
+        .title {
+          @apply text-white text-lg font-bold mb-4;
+        }
+        .address {
+          @apply mt-3;
+          i {
+            @apply mr-2;
+          }
+        }
+        .phone {
+          @apply mt-3;
+          i {
+            @apply mr-2;
+          }
+        }
+        .email {
+          @apply mt-3;
+          i {
+            @apply mr-2;
+          }
+        }
+      }
+      .tablink {
+        .link {
+          @apply mt-3 cursor-pointer;
+          &:hover {
+            @apply text-pink-500;
+          }
+        }
+      }
+      .contact {
+        i {
+          @apply text-2xl mr-3 cursor-pointer;
+        }
+        .facebook {
+          @apply text-blue-600;
+        }
+      }
+      .newletter {
+        input {
+          @apply py-2 px-3
+        }
+        button {
+          @apply bg-pink-600 py-2 px-3;
+        }
+      }
+    }
+  }
+  .copyright {
+    @apply text-center py-4 bg-black/[.95] text-white border-t-white border-t;
+    h1 {
+      @apply text-white;
+    }
+  }
+  .active {
+    @apply text-pink-500;
+  }
+}

@@ -1,0 +1,41 @@
+<div class="wrap">
+  <div class="container">
+    <div class="img">
+      <img [src]="productDetail.img" alt="">
+    </div>
+    <div class="content">
+      <h1 class="content-title">{{productDetail.name}}</h1>
+      <div class="content-price">
+        <span class="price">{{convertNumber(productDetail.price)}}đ</span>
+        <h1 class="status">
+          <span class="status-title">Tình trạng: </span>
+          <span class="status-is" *ngIf="productDetail.total > 0">Còn hàng</span>
+          <span class="text-red-600" *ngIf="productDetail.total < 0">Hết Hàng</span>
+        </h1>
+      </div>
+      <div class="size">
+        <h1 class="size-title">Kích thước: {{size}}</h1>
+        <ul class="list-size">
+          <li class="item-size"  (click)="handClickSize(s)" *ngFor="let s of listSize" [class.active]="size == s">{{s}}</li>
+        </ul>
+      </div>
+        <div class="quantity">
+          <h1 class="quantity-title">Số lượng: </h1>
+          <input class="input input-button" value="-" (click)="handleTotalProduct(-1)" type="button">
+          <input class="input" [(ngModel)]="totalProduct" type="button" value="1">
+          <input class="input input-button" (click)="handleTotalProduct(+1)" value="+" type="button">
+        </div>
+      <div class="actions">
+        <button class="add-cart">Thêm vào giỏ hàng</button>
+        <button class="buying">Mua ngay</button>
+      </div>
+
+    </div>
+  </div>
+  <div class="description">
+    <h1 class="des-title">Mô sản phẩm</h1>
+    <p class="des-content">
+     {{productDetail.description}}
+    </p>
+  </div>
+</div>
