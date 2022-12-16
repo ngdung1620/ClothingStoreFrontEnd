@@ -7,7 +7,7 @@ import { ProductComponent } from './component/product/product.component';
 import { DetailProductComponent } from './component/detail-product/detail-product.component';
 import {FormsModule} from "@angular/forms";
 import { CartComponent } from './cart/cart.component';
-
+import {NzNotificationModule} from "ng-zorro-antd/notification";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { CartComponent } from './cart/cart.component';
     imports: [
         CommonModule,
         LandingPageRoutingModule,
-        FormsModule
+        FormsModule,
+      NzNotificationModule
     ]
 })
 export class LandingPageModule { }

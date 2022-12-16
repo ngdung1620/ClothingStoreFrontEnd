@@ -18,6 +18,9 @@ export class LandingPageService {
   constructor(private httpClient: HttpClient) { }
   _idProductSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   idProduct$: Observable<string> = this._idProductSubject.asObservable();
+
+  _cartSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  cart$: Observable<number> = this._cartSubject.asObservable();
   getAllProduct():Observable<ProductResponse[]>{
     return this.httpClient.get<ProductResponse[]>(`${environment.api_domain}/Product/get-all-product`).pipe(
     )

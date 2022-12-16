@@ -31,6 +31,9 @@
       @apply grid gap-6 grid-cols-5 mt-10;
       .item {
         @apply cursor-pointer;
+        &:hover .item-title {
+          @apply text-pink-500;
+        }
         .img {
           @apply w-full h-72;
           img {
@@ -38,7 +41,7 @@
           }
         }
         .item-title {
-          @apply text-sm mt-2 font-semibold;
+          @apply text-sm mt-2 font-semibold transition-all;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;

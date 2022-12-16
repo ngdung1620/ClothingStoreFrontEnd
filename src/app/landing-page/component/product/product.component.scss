@@ -43,6 +43,9 @@
        @apply grid gap-6 grid-cols-4;
        .item {
          @apply cursor-pointer;
+         &:hover .item-title {
+           @apply text-pink-500;
+         }
          .img {
            @apply w-full h-72;
            img {
