@@ -1,0 +1,98 @@
+<div class="wrapper-content">
+  <div class="content">
+    <i class="fa-solid fa-arrow-left icon-arrow" routerLink="/login"></i>
+    <img src="./assets/img/logoshop.png" class="icon" alt="">
+    <h1 class="content-title">Đăng Kí tài khoản</h1>
+    <form nz-form [formGroup]="validateForm" class="form">
+      <nz-form-item>
+        <nz-form-label
+          nzRequired
+        >
+          <span class="label">Họ Và Tên</span>
+        </nz-form-label>
+        <nz-form-control  [nzSm]="16"  nzErrorTip="Vui lòng nhập tên!">
+          <input nz-input id="name" formControlName="fullName" class="form-input" placeholder="Nguyễn Văn A" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzFor="gender" nzRequired>Giới Tính</nz-form-label>
+        <nz-form-control [nzSm]="16" nzErrorTip="Vui lòng nhập giới tính!">
+          <nz-select
+            id="gender"
+            formControlName="gender"
+            nzPlaceHolder="Chọn giới tính"
+            class="form-select"
+          >
+            <nz-option nzValue="0" nzLabel="Nam"></nz-option>
+            <nz-option nzValue="1" nzLabel="Nữ"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label  nzFor="checkPassword" nzRequired>Ngày Sinh</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzErrorTip]="dateerror">
+          <input nz-input type="date" formControlName="doB" id="date" class="form-input"/>
+          <ng-template #dateerror let-control>
+            <ng-container *ngIf="control.errors['required']">Vui lòng nhật ngày sinh!</ng-container>
+            <ng-container *ngIf="control.errors['c']">
+              Tuổi phải trên 16
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label  nzRequired>Địa Chỉ</nz-form-label>
+        <nz-form-control [nzSm]="16" nzErrorTip="Vui lòng nhập địa chỉ!">
+          <input nz-input class="form-input" id="address" formControlName="address" placeholder="Địa chỉ" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label  nzRequired>Số điện thoại</nz-form-label>
+        <nz-form-control [nzSm]="16" nzErrorTip="Vui lòng nhập số điện thoại">
+          <input nz-input class="form-input" formControlName="phoneNumber" placeholder="Số điện thoại" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label  nzRequired nzFor="email">E-mail</nz-form-label>
+        <nz-form-control [nzSm]="16" nzErrorTip="Email không hợp lệ!">
+          <input nz-input class="form-input" formControlName="email" id="email"  placeholder="Nguyenvana@gmail.com"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label  nzFor="password" nzRequired>Mật Khẩu</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzErrorTip]="errorPw">
+          <input
+            nz-input
+            type="password"
+            class="form-input"
+            id="password"
+            formControlName="password"
+            (ngModelChange)="updateConfirmValidator()"
+          />
+          <ng-template #errorPw let-control>
+            <ng-container *ngIf="control.errors['required']">Vui lòng nhập mật khẩu!</ng-container>
+            <ng-container *ngIf="control.errors['passwordStrength']">
+              Mật Khẩu phải có chữ hoa, chữ thường, số và một kí tự đặc biệt !
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label  nzFor="checkPassword" nzRequired>Nhập Lại Mật Khẩu</nz-form-label>
+        <nz-form-control [nzSm]="16" [nzErrorTip]="errorTpl">
+          <input nz-input class="form-input" type="password" formControlName="checkPassword" id="checkPassword" />
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.errors['required']">Vui lòng nhập lại mật khẩu!</ng-container>
+            <ng-container *ngIf="control.errors['confirm']">
+              Hai mật khẩu không trùng khớp!
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+
+    </form>
+    <button (click)="submitForm()" class="btn">Đăng kí tài khoản</button>
+  </div>
+</div>
+
+

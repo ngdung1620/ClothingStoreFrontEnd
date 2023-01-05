@@ -1,0 +1,40 @@
+.wrapper-content {
+  @apply min-h-screen flex justify-center items-center py-8;
+  background-image: url("/assets/img/background.jpg");
+  background-size: contain;
+  .content {
+    @apply bg-white rounded-xl p-8 flex flex-col items-center shadow-2xl;
+    .icon {
+      @apply w-14 rounded-2xl;
+    }
+    .content-title{
+      @apply text-3xl font-black text-center my-6 md:px-12;
+    }
+    .form {
+      @apply flex flex-col w-80;
+      .form-group{
+        .form-label {
+          @apply py-2 font-medium text-lg;
+        }
+        .form-input {
+          @apply w-full py-2 px-4 rounded-xl border ;
+        }
+      }
+      .form-btn {
+        @apply text-center;
+        .btn {
+          @apply border rounded-full mt-6 py-2 px-6 bg-orange-500 text-white;
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+    .link-register {
+      @apply mt-6 text-base font-bold;
+      .register {
+        @apply text-red-600 cursor-pointer;
+      }
+    }
+  }
+}

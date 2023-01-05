@@ -1,0 +1,25 @@
+<div class="wrapper-content">
+  <div class="content">
+    <img src="./assets/img/logoshop.png" class="icon" alt="">
+    <h1 class="content-title">Đăng Nhập</h1>
+    <form nz-form class="form" [formGroup]="dataForm" (submit)="handleSubmit()">
+      <nz-form-item class="form-group">
+        <nz-form-control nzErrorTip="Vui Lòng nhập Email">
+          <h1 class="form-label">Email</h1>
+          <input type="text" name="" formControlName="email" class="form-input">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item class="form-group">
+        <nz-form-control nzErrorTip="Vui Lòng nhập mật khẩu">
+          <h1 class="form-label">Mật khẩu</h1>
+          <input type="password" name="" formControlName="password" class="form-input">
+        </nz-form-control>
+      </nz-form-item>
+      <div class="form-btn"><button class="btn">Đăng nhập</button></div>
+    </form>
+    <h1 class="link-register">Bạn chưa có tài khoản? <span class="register" routerLink="register">Đăng ký</span></h1>
+  </div>
+</div>
+
+
