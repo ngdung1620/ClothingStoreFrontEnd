@@ -1,0 +1,23 @@
+<div class="wrap">
+  <div class="left">
+    <div class="header">
+      <h2 class="header-name">Nguyễn Văn Dũng</h2>
+      <h2 class="header-email">nguenvandung@gmail.com</h2>
+    </div>
+    <ul class="list-option">
+      <li class="item-option" [routerLink]="o.link"  *ngFor="let o of listOption" routerLinkActive="active"
+          [routerLinkActiveOptions]="o.exact"
+      >
+        <i class="item-icon" [ngClass]="o.icon"></i>
+        <span class="item-title">{{o.title}}</span>
+      </li>
+      <li class="item-option" (click)="handleLogOut()">
+        <i class="fa-solid fa-arrow-right-from-bracket item-icon"></i>
+        <span class="item-title">Đăng xuất</span>
+      </li>
+    </ul>
+  </div>
+  <div class="right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

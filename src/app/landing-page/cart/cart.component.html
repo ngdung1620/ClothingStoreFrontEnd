@@ -11,7 +11,7 @@
            <img [src]="data.img" alt="">
          </div>
          <div class="product-des">
-           <div class="product-title">{{data.title}} </div>
+           <div class="product-title">{{data.name}} </div>
            <div class="product-size">Size: {{data.size}}</div>
            <div class="product-price">{{convertNumber(data.price)}}</div>
          </div>
@@ -19,12 +19,12 @@
        <div class="product-quantity">
          <div class="group-quantity">
            <input type="button" value="-" (click)="handleAdjust(-1,data.id)" class="btn btn-adjust">
-           <input type="text" disabled value="{{data.total}}" class="btn btn-total">
+           <input type="text" disabled value="{{data.quantity}}" class="btn btn-total">
            <input type="button" value="+" (click)="handleAdjust(1,data.id)" class="btn btn-adjust">
          </div>
          <button class="btn-delete" (click)="handleDelete(data.id)">Xóa</button>
        </div>
-       <span class="total-price">{{convertNumber(data.price * data.total)}}đ</span>
+       <span class="total-price">{{convertNumber(data.price * data.quantity)}}đ</span>
      </div>
 
    </div>
@@ -37,10 +37,10 @@
        <span class="total-title">Tổng tiền:</span>
        <span class="price">{{convertNumber(totalPrice)}}đ</span>
      </div>
-     <button class="check-out">Thanh toán ngay</button>
+     <button class="check-out" routerLink="/check-out">Thanh toán ngay</button>
      <div class="continue">
        <i class="fa-solid fa-reply continue-icon"></i>
-       <span class="continue-title">Tiếp tục mua hàng</span>
+       <span class="continue-title" routerLink="/product">Tiếp tục mua hàng</span>
      </div>
    </div>
   </div>

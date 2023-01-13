@@ -1,0 +1,57 @@
+.wrap {
+  width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  @apply flex flex-col items-center mt-14;
+  .img-icon {
+  }
+  .title {
+    @apply text-2xl font-bold mb-2;
+  }
+  .description {
+    @apply text-base;
+  }
+  table{
+    @apply text-left text-base mt-8;
+    thead {
+      @apply border-b;
+      th {
+        @apply py-2;
+      }
+    }
+    .item {
+      @apply border-b;
+      .item-des {
+        @apply flex gap-6 items-center py-3;
+        .item-img {
+          @apply w-20 rounded-2xl;
+          .img {
+            @apply h-full w-full object-cover rounded-xl;
+          }
+        }
+        .item-title {
+          @apply pr-12 font-medium;
+        }
+
+      }
+      .item-price {
+        @apply text-center text-red-600 font-medium pr-4;
+      }
+      .item-quantity {
+        @apply text-center;
+      }
+    }
+  }
+  .back-cart {
+    @apply mt-6 text-lg flex gap-2 items-center cursor-pointer transition-all;
+    .icon-arrow {
+      @apply text-blue-600;
+    }
+    .back-title {
+        @apply text-blue-600;
+    }
+    &:hover {
+     opacity: .7;
+    }
+  }
+}

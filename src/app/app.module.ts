@@ -8,19 +8,25 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {NzBadgeModule} from "ng-zorro-antd/badge";
+import {JwtModule} from "@auth0/angular-jwt";
+import { LoadingComponent } from './core/component/loading/loading.component';
+import {LoadingInterceptor} from "./core/interceptors/loading.interceptor";
+import {NotFoundComponent} from "./core/component/not-found/not-found.component";
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    LoadingComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +36,20 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzButtonModule,
     NzIconModule,
-    NzBadgeModule
+    NzBadgeModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return sessionStorage.getItem("token");
+        },
+      },
+    }),
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: NZ_I18N, useValue: en_US },
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

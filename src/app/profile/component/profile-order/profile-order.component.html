@@ -1,0 +1,21 @@
+<div class="wrap">
+  <h1 class="title">Quản Lí Đơn Hàng</h1>
+  <nz-table #basicTable [nzData]="listOfData" [nzPageSize]="5">
+    <thead>
+    <tr>
+      <th>Mã đơn hàng</th>
+      <th>Ngày đặt</th>
+      <th>Thành tiền</th>
+      <th>Trạng thái thanh toán </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td class="code-order" (click)="handleClick(data.orderId)">#{{ data.orderId.slice(0,7)}}</td>
+      <td>{{handleData(data.orderDate)}}</td>
+      <td>{{ convertNumber(data.totalPrice)}} đ</td>
+      <td>{{ handleStatus(data.status) }}</td>
+    </tr>
+    </tbody>
+  </nz-table>
+</div>

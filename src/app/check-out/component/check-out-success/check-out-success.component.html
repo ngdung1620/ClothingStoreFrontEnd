@@ -1,0 +1,39 @@
+<div class="wrap">
+  <img src="./assets/img/success.png" alt="" class="img-icon">
+  <h1 class="title">Đặt hàng thành công</h1>
+  <p class="description">Đơn hàng của bạn đã được đặt thành công. Vui lòng theo dõi tiến trình đơn hàng của bạn.</p>
+  <h1 class="infor-title">Thông tin đơn hàng</h1>
+  <div class="order-info">
+    <h1 class=order-field>Tên người nhận: <span class="field-title">{{dataSuccess.customerName}}</span></h1>
+    <h1 class="order-field">Địa chỉ người nhận: <span class="field-title">{{dataSuccess.address}}</span></h1>
+    <h1 class="order-field">Số Điện thoại người nhận: <span class="field-title">{{dataSuccess.phoneNumber}}</span></h1>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Sản Phẩm</th>
+      <th>Giá</th>
+      <th>Số lượng</th>
+      <th>Size</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="item" *ngFor="let d of dataSuccess.productOrders">
+      <td class="item-des">
+        <div class="item-img">
+          <img [src]="d.img" alt="" class="img">
+        </div>
+        <h2 class="item-title">{{d.productName}}</h2>
+      </td>
+      <td class="item-price">{{convertNumber(d.price)}}</td>
+      <td class="item-quantity">{{d.quantity}}</td>
+      <td class="item-size">{{d.size}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="back-cart">
+    <i class="fa-solid fa-arrow-left icon-arrow"></i>
+    <span class="back-title" routerLink="/product">Tiếp tục mua hàng</span>
+  </div>
+</div>

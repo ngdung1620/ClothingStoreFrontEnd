@@ -2,8 +2,18 @@ export interface CartLocal {
   id: string;
   idProduct: string;
   size: string;
-  total: number;
+  quantity: number;
   price: number;
-  title: string;
+  name: string;
   img: string;
+}
+export interface AddProductInCartRequest {
+  cartId: string;
+  productId: string;
+  quantity: number;
+  size: number;
+}
+export interface AddProductInCartResponse {
+  status: number;
+  message: string;
 }

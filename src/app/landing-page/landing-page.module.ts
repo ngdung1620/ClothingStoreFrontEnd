@@ -14,7 +14,7 @@ import {NzNotificationModule} from "ng-zorro-antd/notification";
     HomeComponent,
     ProductComponent,
     DetailProductComponent,
-    CartComponent
+    CartComponent,
   ],
     imports: [
         CommonModule,

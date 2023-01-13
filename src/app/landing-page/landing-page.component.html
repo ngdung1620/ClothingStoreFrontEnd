@@ -17,7 +17,8 @@
           <span class="bag-title">{{totalProductInCart}}</span>
           <span nz-icon nzType="shopping-cart" routerLink="./cart" class="right-icon bag" nzTheme="outline"></span>
         </span>
-        <span nz-icon nzType="user" nzTheme="outline" class="right-icon"></span>
+       <span *ngIf="idUser != '' " class="user" routerLink="/profile">{{nameUser}}</span>
+        <button *ngIf="idUser == '' " class="login"  routerLink="/login" >Đăng nhập</button>
       </div>
     </div>
   </section>

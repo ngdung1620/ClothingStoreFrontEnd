@@ -85,7 +85,7 @@
         @apply mt-4 w-full py-3 rounded px-6 bg-pink-600 text-white uppercase font-bold;
       }
       .continue {
-        @apply mt-3 text-center text-base font-medium;
+        @apply mt-3 text-center text-base font-medium cursor-pointer;
       }
     }
   }

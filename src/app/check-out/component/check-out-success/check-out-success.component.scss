@@ -1,0 +1,81 @@
+.wrap {
+  width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  @apply flex flex-col items-center mt-14;
+  .img-icon {
+    @apply w-36 pb-2;
+  }
+  .title {
+    @apply text-2xl font-bold mb-2;
+  }
+  .description {
+    @apply text-base;
+  }
+  .infor-title {
+    @apply text-xl mt-4 mb-2 font-bold;
+  }
+  .order-info {
+    .order-field {
+      @apply text-base my-2 font-bold;
+      .field-title {
+        @apply font-medium text-base;
+      }
+    }
+  }
+  table{
+    @apply text-left text-base mt-8;
+    thead {
+      @apply border-b;
+      th {
+        @apply py-2 pr-6;
+      }
+      .head-product {
+        width: 500px;
+      }
+    }
+    .item {
+      @apply border-b;
+      .item-des {
+        @apply flex gap-6 items-center py-3;
+        .item-img {
+          @apply w-20 rounded-2xl;
+          .img {
+            @apply h-full w-full object-cover rounded-xl;
+          }
+        }
+        .item-title {
+          @apply pr-12 font-medium;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          height: 50px;
+          line-height: 25px;
+        }
+
+      }
+      .item-price {
+        @apply text-center text-red-600 font-medium pr-4;
+      }
+      .item-quantity {
+        @apply text-center pr-4;
+      }
+      .item-size {
+        @apply text-center
+      }
+    }
+  }
+  .back-cart {
+    @apply mt-6 text-lg flex gap-2 items-center cursor-pointer transition-all mb-6;
+    .icon-arrow {
+      @apply text-blue-600;
+    }
+    .back-title {
+      @apply text-blue-600;
+    }
+    &:hover {
+      opacity: .7;
+    }
+  }
+}

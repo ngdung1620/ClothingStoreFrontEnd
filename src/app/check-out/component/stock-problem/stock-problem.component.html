@@ -1,0 +1,30 @@
+<div class="wrap">
+  <img src="./assets/img/inventory_issues.png" alt="" class="img-icon">
+  <h1 class="title">Vấn Đề Tồn Kho</h1>
+  <p class="description">Một số sản phẩm trong giỏ hàng của bạn đã không còn hợp lệ trong quá trình thanh toán.</p>
+  <table>
+    <thead>
+    <tr>
+      <th>Sản Phẩm</th>
+      <th>Giá</th>
+      <th>Số Lượng Còn</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="item" *ngFor="let d of listDataProduct">
+      <td class="item-des">
+        <div class="item-img">
+          <img [src] = "d.img" alt="" class="img">
+        </div>
+        <h2 class="item-title">{{d.name}}</h2>
+      </td>
+      <td class="item-price">{{convertNumber(d.price)}} đ</td>
+      <td class="item-quantity">{{d.total}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="back-cart">
+    <i class="fa-solid fa-arrow-left icon-arrow"></i>
+    <span class="back-title" routerLink="/cart">Quay lại giỏ hàng</span>
+  </div>
+</div>

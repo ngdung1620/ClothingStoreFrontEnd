@@ -1,0 +1,40 @@
+.wrap {
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  @apply grid grid-cols-10 gap-8 pt-12;
+  .left {
+    @apply col-span-3 bg-blue-500 py-2 px-6 rounded bg-white;
+    .header {
+      @apply border-b py-4 ;
+      .header-name {
+        @apply text-xl font-medium;
+      }
+      .header-email {
+        @apply text-gray-400;
+      }
+    }
+    .list-option {
+      @apply mt-3;
+      .item-option {
+        @apply py-2 text-base cursor-pointer transition-all;
+        .item-icon {
+          @apply text-lg;
+        }
+        .item-title {
+          @apply ml-2;
+        }
+        &:hover {
+          @apply text-pink-600;
+        }
+      }
+      .active {
+        @apply text-pink-600;
+      }
+    }
+  }
+  .right {
+    @apply col-span-7 bg-orange-600 rounded bg-white;
+
+  }
+}
