@@ -34,5 +34,7 @@ export class LandingPageService {
   getCategory = (id: string) => this.httpClient.get<GetCategoryResponse>(`${environment.api_domain}/Category/get-category/${id}`);
   getProduct = (id: string) => this.httpClient.get<GetProductResponse>(`${environment.api_domain}/Product/get-product/${id}`);
   listProduct = (data: ListProductRequest) => this.httpClient.post<ListProductResponse>(`${environment.api_domain}/Product/get-list-product`,data);
-  getUser = (id: string) => this.httpClient.get<UserResponse>(`${environment.api_domain}/Authentication/get-user/${id}`)
+  getUser = (id: string) => this.httpClient.get<UserResponse>(`${environment.api_domain}/Authentication/get-user/${id}`);
+  getSellingProduct = () => this.httpClient.get<ProductResponse[]>(`${environment.api_domain}/Product/get-selling-product`);
+  getNewProduct = () => this.httpClient.get<ProductResponse[]>(`${environment.api_domain}/Product/get-new-product`);
 }

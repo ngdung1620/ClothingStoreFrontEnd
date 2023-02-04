@@ -53,14 +53,24 @@ export class OrderDetailComponent implements OnInit {
     return s;
   }
   handleStatus(s: number){
-    if(s == 1){
-      return "Chờ xử lí"
-    }else if (s == 2){
-      return "Chờ thanh toán"
-    }else if(s == 3){
-      return "Đã hoàn thành"
-    }else {
-      return "Đã huỷ"
+    let result = '';
+    switch (s) {
+      case 1:
+        result = "Chờ xửa lí"
+        break;
+      case 2:
+        result = "Chờ giao hàng"
+        break;
+      case 3:
+        result = "Đang giao"
+        break;
+      case 4:
+        result = "Hoàn thành"
+        break;
+      case -1:
+        result = "Đã huỷ"
+        break;
     }
+    return result;
   }
 }

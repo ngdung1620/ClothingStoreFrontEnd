@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ListProductRequest, ListProductResponse} from "../../models/product";
-import {HttpClient} from "@angular/common/http";
 import {LandingPageService} from "../../services/landing-page.service";
 import {Router} from "@angular/router";
 
@@ -10,17 +8,16 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  ListOfData: any;
+  ListDataOfSelling: any;
+  ListDataOfNew: any;
   constructor(private landingPageService: LandingPageService,
               private route: Router) { }
   ngOnInit(): void {
-    const data: ListProductRequest = {
-      search: '',
-      pageIndex: 1,
-      pageSize: 10
-    }
-    this.landingPageService.listProduct(data).subscribe(res => {
-      this.ListOfData = res.products;
+    this.landingPageService.getSellingProduct().subscribe(res => {
+      this.ListDataOfSelling = res;
+    })
+    this.landingPageService.getNewProduct().subscribe(res => {
+      this.ListDataOfNew = res;
     })
   }
   clickProduct(id: string) {

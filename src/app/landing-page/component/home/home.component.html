@@ -6,7 +6,7 @@
     <h1 class="title">Sản phẩm bán chạy</h1>
     <h2 class="description">Top trending tuần này</h2>
     <div class="list-item">
-      <div class="item" *ngFor="let data of ListOfData" (click)="clickProduct(data.id)">
+      <div class="item" *ngFor="let data of ListDataOfSelling" (click)="clickProduct(data.id)">
         <div class="img">
           <img [src]="data.img" >
         </div>
@@ -20,7 +20,7 @@
     <h1 class="title" >Sản phẩm mới về</h1>
     <h2 class="description">Top mẫu mới về</h2>
     <div class="list-item">
-      <div class="item" *ngFor="let data of ListOfData" (click)="clickProduct(data.id)">
+      <div class="item" *ngFor="let data of ListDataOfNew" (click)="clickProduct(data.id)">
         <div class="img">
           <img [src]="data.img" >
         </div>
@@ -31,4 +31,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

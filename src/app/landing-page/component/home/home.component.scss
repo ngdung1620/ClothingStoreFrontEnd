@@ -41,7 +41,7 @@
           }
         }
         .item-title {
-          @apply text-sm mt-2 font-semibold transition-all;
+          @apply text-sm mt-2 font-medium transition-all;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
