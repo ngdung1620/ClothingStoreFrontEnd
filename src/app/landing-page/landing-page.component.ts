@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LandingPageService} from "./services/landing-page.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-landing-page',
@@ -8,10 +9,14 @@ import {LandingPageService} from "./services/landing-page.service";
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(private landingPageService: LandingPageService) { }
+  constructor(private landingPageService: LandingPageService,
+              private router: Router) { }
   totalProductInCart = 0;
   idUser = '';
   nameUser = '';
+  visible =  false;
+  isFormSearch = false;
+  search = '';
   ngOnInit(): void {
     this.landingPageService.cart$.subscribe(c => {
       this.totalProductInCart = c;
@@ -37,5 +42,28 @@ export class LandingPageComponent implements OnInit {
       let data = JSON.parse(localStorage.getItem('cart')) || [];
       this.landingPageService._cartSubject.next(data.length);
     }
+  }
+
+  close() {
+    this.visible = false;
+  }
+
+  handleClick() {
+    this.visible = true;
+  }
+
+  handleClickMobile() {
+    this.visible = false;
+  }
+
+  handleClickSearch() {
+    this.isFormSearch = !this.isFormSearch;
+  }
+
+  handleClickInputSearch() {
+    this.landingPageService._searchSubject.next(this.search);
+    this.isFormSearch = false;
+    this.router.navigate(['search']);
+    this.search = '';
   }
 }

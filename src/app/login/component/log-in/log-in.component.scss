@@ -3,15 +3,18 @@
   background-image: url("/assets/img/background.jpg");
   background-size: contain;
   .content {
-    @apply bg-white rounded-xl p-8 flex flex-col items-center shadow-2xl;
+    @apply bg-white rounded-xl p-8 flex flex-col items-center shadow-2xl px-3 relative;
     .icon {
       @apply w-14 rounded-2xl;
+    }
+    .icon-arrow {
+      @apply absolute left-5 top-6 text-xl cursor-pointer;
     }
     .content-title{
       @apply text-3xl font-black text-center my-6 md:px-12;
     }
     .form {
-      @apply flex flex-col w-80;
+      @apply flex flex-col w-80 px-4;
       .form-group{
         .form-label {
           @apply py-2 font-medium text-lg;

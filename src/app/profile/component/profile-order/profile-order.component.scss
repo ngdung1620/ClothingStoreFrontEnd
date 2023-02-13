@@ -9,4 +9,10 @@
       @apply text-pink-600 underline;
     }
   }
+  nz-table {
+    @apply overflow-auto;
+  }
+  .item-title {
+    min-width: 150px;
+  }
 }

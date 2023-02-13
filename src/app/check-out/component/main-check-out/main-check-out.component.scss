@@ -1,13 +1,10 @@
 .wrap {
-  width: 1300px;
-  margin-right: auto;
-  margin-left: auto;
-  @apply grid grid-cols-7 gap-8 mt-16;
+  @apply lg:grid grid-cols-7 gap-8 mt-16 px-4 xl:px-0 flex flex-col flex-col-reverse  relative;
+  .icon-arrow {
+    @apply absolute -top-8 left-6 text-2xl cursor-pointer;
+  }
   .left {
-    @apply col-span-4 relative;
-    .icon-arrow {
-      @apply absolute top-1 left-2 text-2xl cursor-pointer;
-    }
+    @apply col-span-4 mb-6;
     .title {
       @apply text-3xl font-bold mb-6 text-center;
     }
@@ -79,5 +76,12 @@
         @apply text-red-600 text-2xl;
       }
     }
+  }
+}
+@media(min-width: 1280px){
+  .wrap {
+    width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

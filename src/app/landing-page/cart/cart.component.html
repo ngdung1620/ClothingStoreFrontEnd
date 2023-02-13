@@ -17,14 +17,17 @@
          </div>
        </div>
        <div class="product-quantity">
-         <div class="group-quantity">
-           <input type="button" value="-" (click)="handleAdjust(-1,data.id)" class="btn btn-adjust">
-           <input type="text" disabled value="{{data.quantity}}" class="btn btn-total">
-           <input type="button" value="+" (click)="handleAdjust(1,data.id)" class="btn btn-adjust">
-         </div>
-         <button class="btn-delete" (click)="handleDelete(data.id)">Xóa</button>
+        <div class="quantity-left">
+          <div class="group-quantity">
+            <input type="button" value="-" (click)="handleAdjust(-1,data.id)" class="btn btn-adjust">
+            <input type="text" disabled value="{{data.quantity}}" class="btn btn-total">
+            <input type="button" value="+" (click)="handleAdjust(1,data.id)" class="btn btn-adjust">
+          </div>
+          <button class="btn-delete" (click)="handleDelete(data.id)">Xóa</button>
+        </div>
+         <span class="total-price">{{convertNumber(data.price * data.quantity)}}đ</span>
        </div>
-       <span class="total-price">{{convertNumber(data.price * data.quantity)}}đ</span>
+
      </div>
 
    </div>

@@ -6,6 +6,8 @@ import {ProductComponent} from "./component/product/product.component";
 import {DetailProductComponent} from "./component/detail-product/detail-product.component";
 import {CartComponent} from "./cart/cart.component";
 import {LogOutGuard} from "../core/guard/log-out.guard";
+import {IntroComponent} from "./component/intro/intro.component";
+import {SearchComponent} from "./component/search/search.component";
 
 const routes: Routes = [
   {
@@ -20,6 +22,15 @@ const routes: Routes = [
         path: 'profile',
         loadChildren: () => import('../profile/profile.module').then(m => m.ProfileModule),
         canActivate: [LogOutGuard]
+      },
+      {
+        path: 'intro',
+        component: IntroComponent
+      },
+      {
+        path: 'search',
+        component:SearchComponent
+
       }
     ]
   }

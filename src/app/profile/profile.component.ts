@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CookieService} from "ngx-cookie-service";
+import {LandingPageService} from "../landing-page/services/landing-page.service";
 
 @Component({
   selector: 'app-profile',
@@ -28,10 +29,21 @@ export class ProfileComponent implements OnInit {
     }
 
   ]
-  constructor(private cookieService: CookieService) { }
+  user = {
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    address: ''
+  };
+  constructor(private cookieService: CookieService,
+              private landingPageService: LandingPageService) { }
 
   ngOnInit(): void {
-
+    this.landingPageService.idUser$.subscribe(idUser => {
+      this.landingPageService.getUser(idUser).subscribe(res => {
+        this.user = res;
+      })
+    })
   }
   handleLogOut() {
     this.cookieService.delete("token");

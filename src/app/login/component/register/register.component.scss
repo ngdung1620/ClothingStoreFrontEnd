@@ -4,7 +4,7 @@
   background-size: contain;
   .content {
     width: 600px;
-    @apply bg-white rounded-xl p-8 flex flex-col items-center shadow-2xl relative;
+    @apply bg-white rounded-xl p-8 flex flex-col items-center shadow-2xl relative mx-3 ;
     .icon-arrow {
       @apply absolute left-5 top-6 text-xl cursor-pointer;
     }

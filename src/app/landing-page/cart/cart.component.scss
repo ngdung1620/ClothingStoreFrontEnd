@@ -1,10 +1,7 @@
 .wrap {
-  width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  @apply grid grid-cols-8 gap-8 pt-8 mb-3;
+  @apply lg:grid grid-cols-8 gap-8 pt-8 mb-3;
   .left {
-    @apply col-span-6;
+    @apply col-span-6 mx-2 xl:mx-0;
     .group-title {
       @apply flex justify-between pb-4 border-b mb-4;
       .title-cart {
@@ -19,7 +16,7 @@
         &:last-child {
           @apply border-none;
         }
-        @apply flex justify-between items-center border-b pb-4 mb-3;
+        @apply md:flex justify-between items-center border-b pb-4 mb-3;
         .product-detail {
           @apply  grid grid-cols-5 basis-3/5 gap-4;
           .product-img {
@@ -43,20 +40,24 @@
 
         }
         .product-quantity {
-          @apply flex flex-col items-center;
-          .group-quantity {
-            .btn {
-              @apply border py-2 px-3 text-base text-center;
-            }
-            .btn-total {
-              @apply w-12;
-            }
-            .btn-adjust {
-              @apply cursor-pointer px-4;
+          @apply flex items-center gap-6 justify-between mt-4;
+          .quantity-left {
+            @apply flex gap-2 items-center;
+            .group-quantity {
+              .btn {
+                @apply border py-2 px-3 text-base text-center;
+                margin: 0;
+              }
+              .btn-total {
+                @apply w-12;
+              }
+              .btn-adjust {
+                @apply cursor-pointer px-4;
+              }
             }
           }
           .btn-delete {
-            @apply text-sm mt-3 font-bold underline cursor-pointer transition-all;
+            @apply text-sm font-bold underline cursor-pointer transition-all;
             &:hover {
               @apply text-pink-500;
             }
@@ -69,7 +70,7 @@
     }
   }
   .right {
-    @apply col-span-2;
+    @apply col-span-2 mx-2 xl:mx-0;
     .content {
       @apply border p-3 sticky top-24;
       .title {
@@ -88,5 +89,12 @@
         @apply mt-3 text-center text-base font-medium cursor-pointer;
       }
     }
+  }
+}
+@media (min-width: 1280px) {
+  .wrap {
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

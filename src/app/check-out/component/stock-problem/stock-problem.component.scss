@@ -1,8 +1,5 @@
 .wrap {
-  width: 1300px;
-  margin-right: auto;
-  margin-left: auto;
-  @apply flex flex-col items-center mt-14;
+  @apply flex flex-col items-center mt-14 px-3 xl:px-0;
   .img-icon {
   }
   .title {
@@ -53,5 +50,12 @@
     &:hover {
      opacity: .7;
     }
+  }
+}
+@media (min-width: 1280px) {
+  .wrap{
+    width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

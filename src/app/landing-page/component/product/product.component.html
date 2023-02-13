@@ -1,7 +1,7 @@
 <div class="wrap">
   <div class="content-left">
     <div class="category">
-      <h1 class="category-title">Danh mục sản phẩm</h1>
+      <h1 class="category-title" (click)="handleClickTitle()">Danh mục sản phẩm</h1>
       <div class="category-group" *ngFor="let data of listDataOfGroupCategory">
         <h1 class="group-title">{{data.name}}</h1>
         <ul class="category-list">
@@ -13,6 +13,7 @@
   <div class="content-right">
     <div class="group">
       <h1 class="title">{{title}}</h1>
+      <span class="filter" (click)="handleClickCategory()">Danh mục sản phẩm</span>
       <div class="list-item">
         <div class="item" *ngFor="let data of listData" (click)="clickProduct(data.id)">
           <div class="img">
@@ -31,3 +32,23 @@
     </div>
   </div>
 </div>
+<nz-drawer
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="left"
+  (nzOnClose)="close()"
+  nzWidth = '75%'
+
+>
+  <ng-container *nzDrawerContent class="drawer">
+    <div class="category">
+      <h1 class="category-title" (click)="handleClickTitle()">Danh mục sản phẩm</h1>
+      <div class="category-group" *ngFor="let data of listDataOfGroupCategory">
+        <h1 class="group-title">{{data.name}}</h1>
+        <ul class="category-list">
+          <li class="category-item" (click)="handleClick(d)" *ngFor="let d of data.categories" [class.active]="isAction == d.name">{{d.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </ng-container>
+</nz-drawer>

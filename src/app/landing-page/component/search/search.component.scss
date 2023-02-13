@@ -1,0 +1,75 @@
+.wrap {
+  @apply flex flex-col items-center pt-6;
+  .title {
+    @apply sm:text-3xl font-bold  mb-4 sm:mt-6 text-2xl;
+  }
+  .input-search {
+    @apply outline-none py-2 px-4 text-base border font-medium text-black;
+    background-color: #f8f8f8;
+  }
+  .message-error {
+    @apply flex flex-col items-center mb-4 mx-4;
+    .mes-title {
+      @apply sm:text-2xl  font-medium mb-2 text-xl text-center;
+    }
+    .mess-des {
+      @apply sm:text-lg text-base font-medium text-center;
+    }
+  }
+  .btn {
+    @apply bg-pink-600 text-white text-base p-2 border border-pink-600;
+  }
+  .result {
+    .title-result {
+      @apply sm:text-2xl text-xl my-4 font-medium px-6 xl:px-0;
+    }
+    .list-item {
+      @apply grid gap-6 xl:grid-cols-5 md:grid-cols-3 lg:grid-cols-4  px-6 xl:p-0 grid-cols-2 mb-6;
+      .item {
+        @apply cursor-pointer flex-shrink w-8/12 w-full;
+
+        &:hover .item-title {
+          @apply text-pink-500;
+        }
+        .img {
+          @apply w-full h-72;
+          img {
+            @apply h-full w-full rounded;
+          }
+        }
+        .item-title {
+          @apply text-sm mt-2 font-medium transition-all;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          height: 50px;
+          line-height: 25px;
+        }
+        .item-price {
+          @apply text-red-600 text-base font-medium
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1280px){
+  .wrap {
+    width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .input-search {
+    min-width: 300px;
+  }
+}
+@media (min-width: 640px) {
+  .input-search {
+    min-width: 300px;
+  }
+}
+@media (max-width: 640px) {
+  .input-search {
+    min-width: 250px;
+  }
+}

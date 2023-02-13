@@ -8,6 +8,9 @@ import { DetailProductComponent } from './component/detail-product/detail-produc
 import {FormsModule} from "@angular/forms";
 import { CartComponent } from './cart/cart.component';
 import {NzNotificationModule} from "ng-zorro-antd/notification";
+import { IntroComponent } from './component/intro/intro.component';
+import {NzDrawerModule} from "ng-zorro-antd/drawer";
+import { SearchComponent } from './component/search/search.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import {NzNotificationModule} from "ng-zorro-antd/notification";
     ProductComponent,
     DetailProductComponent,
     CartComponent,
+    IntroComponent,
+    SearchComponent,
   ],
     imports: [
         CommonModule,
         LandingPageRoutingModule,
         FormsModule,
-      NzNotificationModule
+        NzNotificationModule,
+        NzDrawerModule
     ]
 })
 export class LandingPageModule { }

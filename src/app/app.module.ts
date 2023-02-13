@@ -18,6 +18,7 @@ import {JwtModule} from "@auth0/angular-jwt";
 import { LoadingComponent } from './core/component/loading/loading.component';
 import {LoadingInterceptor} from "./core/interceptors/loading.interceptor";
 import {NotFoundComponent} from "./core/component/not-found/not-found.component";
+import {NzDrawerModule} from "ng-zorro-antd/drawer";
 
 registerLocaleData(en);
 
@@ -28,23 +29,24 @@ registerLocaleData(en);
     LoadingComponent,
     NotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    NzButtonModule,
-    NzIconModule,
-    NzBadgeModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return sessionStorage.getItem("token");
-        },
-      },
-    }),
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NzButtonModule,
+        NzIconModule,
+        NzBadgeModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: () => {
+                    return sessionStorage.getItem("token");
+                },
+            },
+        }),
+        NzDrawerModule,
+    ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     {

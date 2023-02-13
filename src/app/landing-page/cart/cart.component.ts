@@ -45,7 +45,7 @@ export class CartComponent implements OnInit {
     return s;
   }
   handleAdjust(number: number, id: string) {
-    let index =  this.listDataCart.findIndex(c => c.id == id);
+    let index = this.listDataCart.findIndex(c => c.id == id);
     this.landingPageService.idUser$.subscribe( idUser => {
       if(idUser != ''){
         if(number == 1){
@@ -57,20 +57,23 @@ export class CartComponent implements OnInit {
             if(res.status == -1){
               this.notification.error('Thất bại',res.message);
             }else {
-              this.getListCart(idUser);
+              this.listDataCart[index].quantity = this.listDataCart[index].quantity + 1;
+              this.calculatorTotal();
             }
           })
         }
         if(number == -1 && this.listDataCart[index].quantity - 1 > 0){
+
           const data: any = {
             id: id,
-            quantity: this.listDataCart[index].quantity - 1
+            quantity: this.listDataCart[index].quantity
           }
           this.cartService.editProductCart(data).subscribe( res => {
             if(res.status == -1){
               this.notification.error('Thất bại',res.message);
             }else {
-              this.getListCart(idUser);
+              this.listDataCart[index].quantity = this.listDataCart[index].quantity - 1;
+              this.calculatorTotal();
             }
           })
         }
@@ -124,5 +127,4 @@ export class CartComponent implements OnInit {
       })
     }
   }
-
 }

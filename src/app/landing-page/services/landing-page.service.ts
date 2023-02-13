@@ -26,6 +26,8 @@ export class LandingPageService {
   _cartSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   cart$: Observable<number> = this._cartSubject.asObservable();
 
+  _searchSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  search$: Observable<string> = this._searchSubject.asObservable();
   getAllProduct():Observable<ProductResponse[]>{
     return this.httpClient.get<ProductResponse[]>(`${environment.api_domain}/Product/get-all-product`).pipe(
     )
@@ -37,4 +39,5 @@ export class LandingPageService {
   getUser = (id: string) => this.httpClient.get<UserResponse>(`${environment.api_domain}/Authentication/get-user/${id}`);
   getSellingProduct = () => this.httpClient.get<ProductResponse[]>(`${environment.api_domain}/Product/get-selling-product`);
   getNewProduct = () => this.httpClient.get<ProductResponse[]>(`${environment.api_domain}/Product/get-new-product`);
+  searchProduct = (data:{search: string}) => this.httpClient.post<ProductResponse[]>(`${environment.api_domain}/Product/search-product`,data)
 }

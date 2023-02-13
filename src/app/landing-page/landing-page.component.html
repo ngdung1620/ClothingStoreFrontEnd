@@ -1,30 +1,39 @@
 <div class="wrap">
   <section class="header">
     <div class="container">
-      <div class="header-left flex items-center">
+      <div class="header-left flex items-center" routerLink="/">
         <img src="./assets/img/logoshop.png" alt="" class="logo">
-        <span class="ml-2 text-xl font-bold">Gấu Shop</span>
+        <span class="ml-2 text-xl font-bold logo-title">Gấu Shop</span>
       </div>
       <div class="header-main">
         <h1 class="main-title" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Trang Chủ</h1>
         <h1 class="main-title" routerLink="/product" routerLinkActive="active">Sản Phẩm</h1>
-        <h1 class="main-title">Giới Thiệu</h1>
-        <h1 class="main-title">Liên Hệ</h1>
+        <h1 class="main-title" routerLink="/intro" routerLinkActive="active" >Giới Thiệu</h1>
       </div>
       <div class="header-right">
-        <span nz-icon nzType="search" nzTheme="outline" class="right-icon"></span>
+       <div class="group-search">
+         <i class="fa-solid fa-magnifying-glass icon-search" (click)="handleClickSearch()"></i>
+         <div class="form-search" *ngIf="isFormSearch">
+           <h1 class="title">Tìm kiếm</h1>
+           <div class="search">
+             <input type="text" class="input-search" [(ngModel)]="search" placeholder="Tìm kiếm sản phẩm">
+             <i class="fa-solid fa-magnifying-glass btn-search" (click)="handleClickInputSearch()"></i>
+           </div>
+         </div>
+       </div>
         <span class="bag">
           <span class="bag-title">{{totalProductInCart}}</span>
           <span nz-icon nzType="shopping-cart" routerLink="./cart" class="right-icon bag" nzTheme="outline"></span>
         </span>
        <span *ngIf="idUser != '' " class="user" routerLink="/profile">{{nameUser}}</span>
         <button *ngIf="idUser == '' " class="login"  routerLink="/login" >Đăng nhập</button>
+        <i class="fa-solid fa-bars menu" (click)="handleClick()"></i>
       </div>
     </div>
   </section>
-  <section class="body">
+  <div class="body">
     <router-outlet></router-outlet>
-  </section>
+  </div>
   <section class="footer">
     <div class="wrap-footer">
       <div class="information item-footer" >
@@ -62,7 +71,7 @@
         <h1 class="title">Đăng ký nhận khuyến mãi</h1>
         <div class="input">
           <input type="text" placeholder="Email">
-          <button>Đăng ký</button>
+          <button class="lg: mt-3">Đăng ký</button>
         </div>
       </div>
     </div>
@@ -71,3 +80,19 @@
     <h1>© Copyright 2022 By NvDung</h1>
   </section>
 </div>
+<nz-drawer
+  [nzClosable]="false"
+  [nzVisible]="visible"
+  nzPlacement="left"
+  (nzOnClose)="close()"
+  nzWidth = '75%'
+
+>
+  <ng-container *nzDrawerContent class="drawer">
+    <div class="list-menu">
+      <h1 class="main-title" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="handleClickMobile()">Trang Chủ</h1>
+      <h1 class="main-title" routerLink="/product" routerLinkActive="active" (click)="handleClickMobile()">Sản Phẩm</h1>
+      <h1 class="main-title" routerLink="/intro" routerLinkActive="active" (click)="handleClickMobile()" >Giới Thiệu</h1>
+    </div>
+  </ng-container>
+</nz-drawer>

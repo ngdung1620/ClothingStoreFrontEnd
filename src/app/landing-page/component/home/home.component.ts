@@ -24,5 +24,9 @@ export class HomeComponent implements OnInit {
     this.landingPageService._idProductSubject.next(id);
     this.route.navigate(['/detail-product']);
   }
+  convertNumber(s: number) {
+    let tmp = s.toString();
+    return tmp.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
 
 }

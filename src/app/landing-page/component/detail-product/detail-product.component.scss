@@ -1,10 +1,8 @@
 .wrap {
-  width: 1300px;
-  margin-right: auto;
-  margin-left: auto;
-  @apply py-12;
+
+  @apply py-12 px-4 xl:px-0;
   .container {
-    @apply grid gap-6 grid-cols-6;
+    @apply md:grid gap-6 grid-cols-6;
     .img {
       @apply col-span-2;
       img {
@@ -14,12 +12,12 @@
     .content {
       @apply col-span-4 pl-2;
       .content-title {
-        @apply text-2xl font-bold mb-3;
+        @apply text-xl lg:text-2xl font-bold mb-3 mt-3;
       }
       .content-price {
         @apply flex items-center;
         .price {
-          @apply text-2xl text-red-600 font-bold mr-6;
+          @apply text-xl lg:text-2xl text-red-600 font-bold mr-6;
         }
         .status {
           @apply text-lg font-medium;
@@ -36,9 +34,9 @@
           @apply my-2 text-base font-medium mb-2;
         }
         .list-size {
-          @apply flex;
+          @apply grid lg:grid-cols-12 gap-2 md:grid-cols-10 grid-cols-8;
           .item-size {
-            @apply py-2 px-4 border mr-3 cursor-pointer;
+            @apply text-center py-2 border cursor-pointer;
           }
           .active {
             @apply border-pink-500;
@@ -79,5 +77,12 @@
     .des-content {
       @apply text-base font-normal pt-4;
     }
+  }
+}
+@media(min-width: 1280px){
+  .wrap {
+    width: 1300px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

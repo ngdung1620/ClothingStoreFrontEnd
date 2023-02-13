@@ -1,0 +1,25 @@
+<div class="wrap">
+  <h1 class="title">Tìm kiếm</h1>
+  <div class="message-error" *ngIf="isMessage">
+    <h1 class="mes-title">Không tìm thấy nội dung bạn yêu cầu!</h1>
+    <h2 class="mess-des">Vui lòng kiểm tra chính tả, sử dụng các từ tổng quát hơn và thử lại!</h2>
+  </div>
+  <div class="form-search" *ngIf="search == ''">
+    <input type="text" class="input-search" [(ngModel)]="inputSearch" placeholder="Tìm kiếm sản phẩm">
+    <button class="btn" (click)="handleClickSearch()">Tìm kiếm</button>
+  </div>
+  <div class="result" *ngIf="listData.length != 0">
+    <h1 class="title-result">Kết quả tìm kiếm:</h1>
+    <div class="list-item">
+      <div class="item" *ngFor="let data of listData" (click)="clickProduct(data.id)">
+        <div class="img">
+          <img [src]="data.img" >
+        </div>
+        <h1 class="item-title">
+          {{data.name}}
+        </h1>
+        <h2 class="item-price">{{convertNumber(data.price)}}<span>đ</span></h2>
+      </div>
+    </div>
+  </div>
+</div>

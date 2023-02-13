@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {LandingPageService} from "../../services/landing-page.service";
-import {ProductResponse} from "../../models/product";
-import {BehaviorSubject, Observable} from "rxjs";
 import {Router} from "@angular/router";
 
 @Component({
@@ -16,6 +14,7 @@ export class ProductComponent implements OnInit {
   listDataOfGroupCategory: any;
   isAction = ''
   isEmpty =  false;
+  visible = false;
   constructor(private landingPageService: LandingPageService,
               private route: Router) { }
 
@@ -60,11 +59,27 @@ export class ProductComponent implements OnInit {
       }
 
     })
+    this.visible = false;
 
   }
 
   clickProduct(id: string) {
     this.landingPageService._idProductSubject.next(id);
     this.route.navigate(['/detail-product']);
+  }
+
+  close() {
+    this.visible = false;
+  }
+
+  handleClickCategory() {
+    this.visible = true;
+  }
+
+  handleClickTitle() {
+    this.getProduct();
+    this.title = 'Tất cả sản phẩm';
+    this.isAction = '';
+    this.visible = false;
   }
 }

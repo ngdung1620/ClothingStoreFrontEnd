@@ -1,5 +1,5 @@
 .wrap {
-  @apply p-8 ;
+  @apply p-8 overflow-auto;
   .title {
     @apply text-2xl font-bold text-center mb-6;
   }
@@ -19,7 +19,7 @@
     }
   }
   table{
-    @apply w-full border mt-10;
+    @apply w-full border mt-10 ;
     tr,thead,td,th {
       @apply border;
     }
