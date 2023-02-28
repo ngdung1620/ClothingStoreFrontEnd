@@ -15,6 +15,8 @@ export class ProductComponent implements OnInit {
   isAction = ''
   isEmpty =  false;
   visible = false;
+  optionSelect = "0";
+  idCategory = '';
   constructor(private landingPageService: LandingPageService,
               private route: Router) { }
 
@@ -24,7 +26,10 @@ export class ProductComponent implements OnInit {
     this.getGroupCategory();
   }
   getProduct () {
-    this.landingPageService.getAllProduct().subscribe((res: any) => {
+    const data ={
+      optionSelect: this.optionSelect
+    }
+    this.landingPageService.getAllProduct(data).subscribe((res: any) => {
       this.listData = res;
       if(res.length == 0){
         this.isEmpty = true;
@@ -50,7 +55,12 @@ export class ProductComponent implements OnInit {
   handleClick(d: any) {
     this.isAction = d.name;
     this.title = d.name;
-    this.landingPageService.getCategory(d.id).subscribe(res => {
+    this.idCategory = d.id;
+    const  data = {
+      id: d.id,
+      optionSelect: this.optionSelect
+    }
+    this.landingPageService.getCategoryByOption(data).subscribe(res => {
       this.listData = res.products;
       if(res.products.length == 0){
         this.isEmpty = true;
@@ -77,9 +87,29 @@ export class ProductComponent implements OnInit {
   }
 
   handleClickTitle() {
+    this.idCategory = '';
     this.getProduct();
     this.title = 'Tất cả sản phẩm';
     this.isAction = '';
     this.visible = false;
+  }
+
+  handleChangeOption() {
+   if(this.idCategory === ''){
+     this.getProduct();
+   }else {
+     const  data = {
+       id: this.idCategory,
+       optionSelect: this.optionSelect
+     }
+     this.landingPageService.getCategoryByOption(data).subscribe(res => {
+       this.listData = res.products;
+       if(res.products.length == 0){
+         this.isEmpty = true;
+       }else {
+         this.isEmpty = false;
+       }
+     })
+   }
   }
 }

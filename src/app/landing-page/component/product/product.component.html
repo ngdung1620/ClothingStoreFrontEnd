@@ -12,7 +12,15 @@
   </div>
   <div class="content-right">
     <div class="group">
-      <h1 class="title">{{title}}</h1>
+      <div class="group-head">
+        <h1 class="head-title">{{title}}</h1>
+        <nz-select [(ngModel)]="optionSelect" class="head-select" (ngModelChange)="handleChangeOption()">
+          <nz-option nzValue="0" nzLabel="Sản phẩm mới nhất"></nz-option>
+          <nz-option nzValue="1" nzLabel="Bán chạy nhất"></nz-option>
+          <nz-option nzValue="2" nzLabel="Giá: Tăng dần"></nz-option>
+          <nz-option nzValue="3" nzLabel="Giá: Giảm dần"></nz-option>
+        </nz-select>
+      </div>
       <span class="filter" (click)="handleClickCategory()">Danh mục sản phẩm</span>
       <div class="list-item">
         <div class="item" *ngFor="let data of listData" (click)="clickProduct(data.id)">

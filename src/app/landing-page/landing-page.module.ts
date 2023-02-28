@@ -11,6 +11,7 @@ import {NzNotificationModule} from "ng-zorro-antd/notification";
 import { IntroComponent } from './component/intro/intro.component';
 import {NzDrawerModule} from "ng-zorro-antd/drawer";
 import { SearchComponent } from './component/search/search.component';
+import {NzSelectModule} from "ng-zorro-antd/select";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SearchComponent } from './component/search/search.component';
         LandingPageRoutingModule,
         FormsModule,
         NzNotificationModule,
-        NzDrawerModule
+        NzDrawerModule,
+        NzSelectModule
     ]
 })
 export class LandingPageModule { }
