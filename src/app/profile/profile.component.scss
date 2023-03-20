@@ -1,7 +1,7 @@
 .wrap {
   @apply lg:grid grid-cols-10 gap-8 pt-12 px-4 xl:px-0;
   .left {
-    @apply col-span-3 bg-blue-500 py-2 px-6 rounded bg-amber-100;
+    @apply col-span-3 bg-blue-500 py-2 px-6 rounded bg-gray-200;
     .header {
       @apply border-b py-4 ;
       .header-name {
@@ -31,7 +31,7 @@
     }
   }
   .right {
-    @apply col-span-7 bg-orange-600 rounded bg-amber-100  mt-3 lg:mt-0;
+    @apply col-span-7 bg-orange-600 rounded bg-gray-200  mt-3 lg:mt-0;
   }
 }
 @media(min-width: 1280px){

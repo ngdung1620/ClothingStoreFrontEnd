@@ -21,7 +21,7 @@
   table{
     @apply w-full border mt-10 ;
     tr,thead,td,th {
-      @apply border;
+      @apply border border-gray-600;
     }
     .head-title {
       min-width: 100px;
