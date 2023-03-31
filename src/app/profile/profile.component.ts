@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
     })
   }
   handleLogOut() {
-    this.cookieService.delete("token");
+   localStorage.removeItem('token')
     location.reload();
   }
 }

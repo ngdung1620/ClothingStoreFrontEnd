@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
   title = 'ClothingStore';
 
   ngOnInit(): void {
-    if(this.cookieService.get('token') != null && this.cookieService.get('token') != ''){
+    if(localStorage.getItem('token') != null && localStorage.getItem('token') != ''){
       const tokenObj = this.loginService.token();
       this.landingPageService._idUserSubject.next(tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
       this.landingPageService.idUser$.subscribe(id => {

@@ -15,12 +15,12 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.cookieService.get('token') == null) {
+    if (localStorage.getItem('token') == null) {
       this.route.navigate(["/login"]);
       return false;
     }
 
-    const token = this.cookieService.get('token');
+    const token = localStorage.getItem('token');
     if(this.jwtHelper.isTokenExpired(token)) {
       this.route.navigate(["/login"]);
       return false;

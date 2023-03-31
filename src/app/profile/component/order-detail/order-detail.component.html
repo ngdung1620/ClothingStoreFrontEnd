@@ -37,7 +37,7 @@
            <h1 class="g-size">Size: {{d.size}}</h1>
          </div>
         </td>
-        <td class="item-price">{{d.price}}đ</td>
+        <td class="item-price">{{convertNumber(d.price)}}đ</td>
         <td class="item-quantity">{{d.quantity}}</td>
         <td class="item-total"> {{convertNumber(d.price * d.quantity)}} đ</td>
       </tr>

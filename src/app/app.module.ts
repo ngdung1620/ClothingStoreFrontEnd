@@ -19,6 +19,7 @@ import { LoadingComponent } from './core/component/loading/loading.component';
 import {LoadingInterceptor} from "./core/interceptors/loading.interceptor";
 import {NotFoundComponent} from "./core/component/not-found/not-found.component";
 import {NzDrawerModule} from "ng-zorro-antd/drawer";
+import {AuthorizationInterceptor} from "./core/interceptors/authorization.interceptor";
 
 registerLocaleData(en);
 

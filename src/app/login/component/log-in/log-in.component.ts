@@ -41,7 +41,7 @@ export class LogInComponent implements OnInit {
           return;
         }
         this.notification.success("Thành công",res.message);
-        this.cookieService.set('token',res.token,{expires: 1})
+        localStorage.setItem('token',res.token)
         const tokenObj = this.loginService.token();
         this.landingPageService._idUserSubject.next(tokenObj[tokenObj['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']]);
         this.route.navigate(['']);

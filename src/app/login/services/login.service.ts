@@ -17,10 +17,10 @@ export class LoginService {
   registerAccount = (data: RegisterRequest) => this.httpClient.post<RegisterResponse>(`${environment.api_domain}/Authentication/registration`,data);
   logIn = (data: LoginRequest) => this.httpClient.post<LoginResponse>(`${environment.api_domain}/Authentication/login`,data);
   public token = () => {
-    if(this.cookieService.get('token') == '' || this.cookieService.get('token') == null){
+    if(localStorage.getItem('token') == '' || localStorage.getItem('token') == null){
       return;
     }
-    const token = this.cookieService.get('token');
+    const token = localStorage.getItem('token') || '';
     return this.decodeToken(token);
   }
 
