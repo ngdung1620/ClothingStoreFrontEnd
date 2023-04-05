@@ -63,10 +63,9 @@ export class CartComponent implements OnInit {
           })
         }
         if(number == -1 && this.listDataCart[index].quantity - 1 > 0){
-
           const data: any = {
             id: id,
-            quantity: this.listDataCart[index].quantity
+            quantity: this.listDataCart[index].quantity - 1
           }
           this.cartService.editProductCart(data).subscribe( res => {
             if(res.status == -1){

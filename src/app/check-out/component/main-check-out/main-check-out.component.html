@@ -70,7 +70,7 @@
             <h3 class="des-quantity">Số lượng: {{data.quantity}}</h3>
           </div>
         </div>
-        <div class="total-price">{{convertNumber(data.price)}}đ</div>
+        <div class="total-price">{{convertNumber(data.price * +data.quantity)}}đ</div>
       </div>
     </div>
     <div class="total-estimate">

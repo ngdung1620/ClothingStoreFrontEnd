@@ -23,6 +23,8 @@ export class SearchComponent implements OnInit {
          this.listData = res;
          if(res.length == 0){
            this.isMessage = true;
+         }else {
+           this.isMessage = false;
          }
        })
      }

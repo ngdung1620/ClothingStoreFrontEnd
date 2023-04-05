@@ -69,7 +69,8 @@ export class MainCheckOutComponent implements OnInit {
           this.cartService.getCart(idCart).subscribe(res =>{
             this.listDataItem = res;
             this.listDataItem.forEach(d => {
-              this.temporaryPrice += d.price;
+              this.temporaryPrice += d.price * +d.quantity;
+              this.handleCalculatorTransPrice();
             })
           })
         })
@@ -88,7 +89,8 @@ export class MainCheckOutComponent implements OnInit {
               img: res.img,
               size: d.size
             };
-            this.temporaryPrice += res.price;
+            this.temporaryPrice += res.price * d.quantity;
+            this.handleCalculatorTransPrice()
             this.listDataItem.push(<ItemInCart>item);
           });
         })
